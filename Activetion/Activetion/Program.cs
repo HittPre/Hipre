@@ -43,10 +43,11 @@ namespace Activetion
 
             if (!Player.Instance.ChampionName.ToLower().Contains("vayne"))
                 return;
-            Chat.Print("Pronto");
+            Chat.Print("Test Vayne Addon Beta");
             menu = MainMenu.AddMenu("Activetion", "Activetion");
             menu.Add("combo", new CheckBox("Combo Active", true));
             menu.Add("CR", new CheckBox("Active(R)"));
+            menu.Add("CQ", new CheckBox("Active(Q)"));
             menu.Add("UCR", new Slider("Use R When You Have More Enemy >= {0}", 3, 0, 5));
             Game.OnUpdate += Game_OnTick;
             Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
@@ -72,9 +73,9 @@ namespace Activetion
 
           private static void Combo()
         {
-            if (Player.CanUseSpell(SpellSlot.R) == SpellState.Ready && Game.Time > lastaa + aacastdelay + 0.025f && Game.Time < lastaa + (aadelay * 0.75f))
+            if (Player.CanUseSpell(SpellSlot.Q) == SpellState.Ready && Game.Time > lastaa + aacastdelay + 0.025f && Game.Time < lastaa + (aadelay * 0.75f))
             {
-                Player.CastSpell(SpellSlot.R, Game.CursorPos);
+                Player.CastSpell(SpellSlot.Q, Game.CursorPos);
                 return;
             }
             var target = GetAATarget(Player.Instance.AttackRange + Player.Instance.BoundingRadius);
