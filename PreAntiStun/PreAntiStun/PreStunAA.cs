@@ -76,7 +76,7 @@ namespace PreStunAA
                     Menu["minbuff"].Cast<Slider>().CurrentValue--;
                 }
             };
-            CC.AddGroupLabel("Auto QSS if :");
+            CC.AddGroupLabel("AutoQSS if :");
             CC.Add("Taunt", new CheckBox("Taunt"));
             CC.Add("Stun", new CheckBox("Stun"));
             CC.Add("Snare", new CheckBox("Snare"));
